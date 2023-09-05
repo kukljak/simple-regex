@@ -1,6 +1,35 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a small React app where you can validate your inputs.
+The validation of the entered text occurs using special RegEx.
+You can set the maxLength that will be pasted in the regular expression.abs
+
+Let's talk more about which criteria are based on this RegEx:
+
+1) ^ and $: These signify the start and end of the string, respectively.
+
+2) (?=.*[A-Z]): This is a positive lookahead assertion that checks for the presence of at least one uppercase letter.
+
+      ?=: denotes a lookahead assertion, which means "succeed only if the contained pattern could match next".
+      .*: zero or more of any character (except a newline).
+      [A-Z]: an uppercase letter.
+
+3) (?=.*[a-z]): This is another positive lookahead assertion that checks for at least one lowercase letter.
+
+      [a-z]: a lowercase letter.
+
+4) (?=.*\d): This is a positive lookahead assertion to check for at least one digit.
+
+      \d: any digit from 0 to 9.
+
+5) (?=.*[!"#$%&'()*+,-./:;<=>?@\[\]^_{|}~])`: This is a positive lookahead assertion that checks for the presence of at least one special character from the predefined list.
+
+      [!"#$%&'()*+,-./:;<=>?@\\[\\]^_\{|}~]`: one of the special characters.
+
+6) \S{1,${maxLength}}: This part checks for a string length of between 1 and maxLength, and that the string contains no whitespace characters.
+
+      \S: matches a single character that is not a white-space character.
+      {1,${maxLength}}: signifies that between 1 and maxLength of the preceding token (in this case \S) are allowed.
 
 ## Available Scripts
 
@@ -28,43 +57,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

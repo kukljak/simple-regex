@@ -1,15 +1,11 @@
 import React, { useState } from "react";
+import { validateString } from "./utils/validation";
 import "./App.css";
 
 function App() {
   const [str, setStr] = useState("");
   const [maxLength, setMaxLength] = useState("");
   const [isValid, setIsValid] = useState(null);
-
-  function validateString(str, maxLength) {
-    const regex = new RegExp(`^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[!"#$%&'()*+,-./:;<=>?@\\[\\]^_\`{|}~])\\S{1,${maxLength}}$`);
-    return regex.test(str);
-  }
 
   const handleValidate = () => {
     const result = validateString(str, maxLength);
